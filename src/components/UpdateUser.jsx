@@ -30,7 +30,7 @@ export default function UpdateUser() {
         formData.append('file', image);
         formData.append('userId', user._id);
 
-        await fetch('http://localhost:3000/users/img', {
+        await fetch('https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/img', {
             method: 'PUT',
             body: formData,
             headers: {

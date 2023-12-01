@@ -1,6 +1,6 @@
 //employees by rol
 export function searchEmploys(setEmployees, rol) {
-    fetch(`http://localhost:3000/users/${rol}`)
+    fetch(`p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/${rol}`)
         .then(res => res.json())
         .then(res => {
             setEmployees(res)

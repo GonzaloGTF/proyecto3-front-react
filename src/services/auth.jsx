@@ -26,7 +26,7 @@ export function fetchService({ form }) {
             body: JSON.stringify({ email, password })
         }
 
-        fetch("http://localhost:3000/auth/login", data)
+        fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/auth/login", data)
             .then(res => res.json())
             .then(res => {
                 if (res.user) {
@@ -55,7 +55,7 @@ export function fetchService({ form }) {
             body: JSON.stringify({ nombre, apellidos, email, telefono, password })
         }
 
-        fetch("http://localhost:3000/users/register", data)
+        fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/register", data)
             .then(res => res.json())
             .then(res => {
 
@@ -86,7 +86,7 @@ export function fetchService({ form }) {
                 body: JSON.stringify({ form, id })
             }
 
-            fetch("http://localhost:3000/users/update", data)
+            fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/update", data)
                 .then(res => res.json())
                 .then(res => {
                     if (res._id) {
