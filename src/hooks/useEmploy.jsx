@@ -79,7 +79,6 @@ export function useEmploy() {
         processPending(emp, boolean)
         const employTemp = employPending.filter(empl => empl._id !== emp._id);
         setEmployPending(employTemp)
-
     }
 
     return {

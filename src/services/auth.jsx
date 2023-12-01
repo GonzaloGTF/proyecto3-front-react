@@ -3,7 +3,7 @@ import { useCallback, useContext } from "react"
 
 export function fetchService({ form }) {
 
-    const { setUser, setError } = useContext(UserContext)
+    const { setUser, setError, user } = useContext(UserContext)
 
     //Comprobacion Login
     const handleLogin = useCallback((e) => {
@@ -38,6 +38,7 @@ export function fetchService({ form }) {
                     setError(res.message)
                 }
             })
+            .catch(e => console.log(e))
     }
 
     //Register + login
@@ -69,7 +70,41 @@ export function fetchService({ form }) {
             .catch(e => console.log(e))
     }, [form])
 
-    return { handleLogin, handleRegister }
+
+    //update User
+    const handleEdit = useCallback((e) => {
+        e.preventDefault()
+
+        if (form !== "") {
+            console.log(form)
+            const id = user._id
+            let data = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({ form, id })
+            }
+
+            fetch("http://localhost:3000/users/update", data)
+                .then(res => res.json())
+                .then(res => {
+                    if (res._id) {
+                        setUser(res)
+                    }
+                    else {
+                        setError(res.message)
+                    }
+                })
+                .catch(e => console.log(e))
+        }
+        else {
+            setError("Edite algun dato")
+        }
+    }, [form])
+
+    return { handleLogin, handleRegister, handleEdit }
 }
 
 

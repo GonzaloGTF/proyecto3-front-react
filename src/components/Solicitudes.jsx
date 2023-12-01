@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { useEmploy } from "../hooks/useEmploy"
 import UserContext from "../UserContext"
 import { Navigate } from "react-router-dom"
-import { processPending } from "../services/employ"
 
 
 export default function Solicitudes() {
@@ -12,29 +11,29 @@ export default function Solicitudes() {
 
     return (
         <>
-            {user?.roles.includes("admin") ? (< Navigate to="/" />) : (
+            {!user?.roles.includes("admin") ? (< Navigate to="/" />) : (
                 < div >
                     <div id="descripcion" className="p-8">
                         <h1 className="text-3xl font-bold mb-4">Solicitudes</h1>
                     </div>
 
-                    <table className="table table-zebra mb-20">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>Nombre y apellidos</th>
-                                <th>Servicios</th>
-                                <th>Localidad</th>
-                                <th>Email</th>
-                                <th>Telefono</th>
-                                <th>Descripción</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {employPending !== null && employPending?.length !== 0 ? (
-                                employPending.map((emp, i) => (
+                    {employPending !== null && employPending?.length !== 0 ? (
+                        <table className="table table-zebra mb-20">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Nombre y apellidos</th>
+                                    <th>Servicios</th>
+                                    <th>Localidad</th>
+                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Descripción</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            {employPending.map((emp, i) => (
+                                <tbody>
 
                                     <tr key={emp._id} >
                                         <th>{i + 1}</th>
@@ -78,19 +77,17 @@ export default function Solicitudes() {
                                         </td>
                                     </tr>
 
-                                ))
-                            ) : (
-
-                                <div role="alert" className="alert alert-warning">
-                                    <span className="material-icons">face</span>
-                                    <span>Ninguna solicitud.</span>
-                                </div>
-                            )}
-                        </tbody>
-                    </table>
+                                </tbody>
+                            ))}
+                        </table>
+                    ) : (
+                        <div role="alert" className="alert alert-warning">
+                            <span className="material-icons">face</span>
+                            <span>Ninguna solicitud.</span>
+                        </div>
+                    )}
                 </div >
             )}
-
         </>
     )
 }

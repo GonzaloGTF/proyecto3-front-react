@@ -7,7 +7,6 @@ export function employPut({ employForm, profesion }) {
     const { user, setUser, setError } = useContext(UserContext)
 
 
-
     const handleEmploy = useCallback((e) => {
         e.preventDefault()
 
@@ -44,10 +43,6 @@ export function employPut({ employForm, profesion }) {
 
 
     }, [employForm, user, profesion])
-
-
-
-
 
     return { handleEmploy }
 }

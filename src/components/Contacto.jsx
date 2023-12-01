@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react"
 import UserContext from "../UserContext"
 import { useForm } from "../hooks/useForm"
-import { fetchComent } from "../services/Contacto"
+import { fetchComent } from "../services/contacto"
 import mix from "../assets/mix.jpg"
 
 export default function Contact() {
@@ -28,7 +28,7 @@ export default function Contact() {
                         onChange={handleForm}
                         type="email"
                         name="email"
-                        value={user ? user.email : ""}
+                        defaultValue={user ? user.email : ""}
                         placeholder="E-mail"
                         className="input input-bordered input-info w-full border p-2 rounded"
                     />
@@ -57,7 +57,7 @@ export default function Contact() {
 
                     )}
 
-                    {error !== null ? <p className="text-red-400">Rellene el formulario.</p> : ""}
+                    {error !== null ? <p className="text-red-400">{error}</p> : ""}
 
                 </form>
             </div>

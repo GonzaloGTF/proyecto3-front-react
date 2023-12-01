@@ -50,19 +50,25 @@ export default function Header() {
 
 
                             <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><button onClick={null} >
+                                {/* <li><button onClick={null} >
                                     <i className="material-icons">chat</i>
                                     Conversaciones
-                                </button></li>
+                                </button></li> */}
                                 <li><Link to="/config" >
                                     <i className="material-icons">settings</i>
                                     Configurar cuenta
                                 </Link></li>
                                 {user?.roles.includes("admin") ? (
-                                    <li>
-                                        <Link to="/solicitudes">Solicitudes de trabajo</Link>
-                                    </li>
-
+                                    <>
+                                        <li>
+                                            <Link to="/solicitudes">
+                                                <i className="material-icons">person_add</i>Solicitudes de trabajo</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/comentarios">
+                                                <i className="material-icons">chat</i>Comentarios</Link>
+                                        </li>
+                                    </>
                                 ) : (
                                     ""
                                 )}

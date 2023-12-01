@@ -20,7 +20,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-center justify-center">
-                <p className="text-lg">Proporcionamos cuatro servicios:</p>
+                <p className="text-2xl">Proporcionamos cuatro servicios:</p>
                 <div className="flex space-between m-10">
                     <div className="flex flex-col items-center m-5">
                         <h2 className="text-2xl font-bold m-3">Carpintero</h2>
