@@ -76,7 +76,6 @@ export function fetchService({ form }) {
         e.preventDefault()
 
         if (form !== "") {
-            console.log(form)
             const id = user._id
             let data = {
                 method: 'PUT',
