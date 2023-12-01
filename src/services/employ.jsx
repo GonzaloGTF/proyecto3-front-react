@@ -26,7 +26,7 @@ export function employPut({ employForm, profesion }) {
             body: JSON.stringify({ profesion, localidad, descripcion, id })
         }
 
-        fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/employ", data)
+        fetch("https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/employ", data)
             .then(res => res.json())
             .then(res => {
                 if (res._id) {
@@ -62,7 +62,7 @@ export function processPending(emp, boolean) {
         body: JSON.stringify({ id, boolean })
     }
 
-    fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/select", data)
+    fetch("https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/users/select", data)
         .then(res => res.text())
         .then(res => {
         })

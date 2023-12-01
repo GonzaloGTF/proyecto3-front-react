@@ -19,7 +19,7 @@ export function fetchComent({ form }) {
             body: JSON.stringify({ email, comentario })
         }
 
-        fetch("p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments/new", data)
+        fetch("https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments/new", data)
             .then(res => res.json())
             .then(res => {
                 if (res.error) {
@@ -39,7 +39,7 @@ export function fetchComent({ form }) {
 
 //get
 export function searchComments(setComments) {
-    fetch(`p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments`)
+    fetch(`https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments`)
         .then(res => res.json())
         .then(res => {
             setComments(res)
@@ -59,7 +59,7 @@ export function deleteCommentFetch(id) {
         body: JSON.stringify({ id })
     }
 
-    fetch(`p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments`, data)
+    fetch(`https://p01--proyecto3-back-nest--k4bvp5frjj2w.code.run/coments`, data)
         .then(res => res.text())
         .then(res => {
 
